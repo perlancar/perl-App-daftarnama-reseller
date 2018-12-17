@@ -38,7 +38,15 @@ F<~/.config/daftarnama-reseller.conf>, put the following information:
  password = ...
  idkey = ...
 
-To list available subcommands:
+To check availability for a domain:
+
+ % daftarnama-reseller check-availability foo.co.id
+
+To get lock status for a domain:
+
+ % daftarnama-reseller get-lock-status daftarnama.id
+
+To list all the available subcommands:
 
  % daftarnama-reseller -h
 
