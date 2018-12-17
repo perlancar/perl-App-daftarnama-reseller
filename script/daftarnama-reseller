@@ -1,0 +1,48 @@
+#!perl
+
+# DATE
+# VERSION
+
+use 5.010001;
+use strict;
+use warnings;
+
+use Perinci::CmdLine::Any;
+use WWW::DaftarNama::Reseller ();
+
+my $prefix = '/WWW/DaftarNama/Reseller/';
+my %subcommands;
+for my $fname (keys %WWW::DaftarNama::Reseller::SPEC) {
+    next unless $fname =~ /\A\w+\z/;
+    (my $scname = $fname) =~ s/_/-/g;
+    $subcommands{$scname} = { url => "${prefix}$fname" };
+}
+
+Perinci::CmdLine::Any->new(
+    url => $prefix,
+    subcommands => \%subcommands,
+    log => 1,
+)->run;
+
+# ABSTRACT:
+# PODNAME:
+
+=head1 SYNOPSIS
+
+DaftarNama.id, L<https://daftarnama.id>, is an Indonesian TLD (.id) registrar.
+
+First, create a reseller account at DaftarNama.id (L<https://daftarnama.id>). In
+F<~/.config/daftarnama-reseller.conf>, put the following information:
+
+ username = ...
+ password = ...
+ idkey = ...
+
+To list available subcommands:
+
+ % daftarnama-reseller -h
+
+
+=head1 SEE ALSO
+
+L<https://daftarnama.id/>
