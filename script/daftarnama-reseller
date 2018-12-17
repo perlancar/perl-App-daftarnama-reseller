@@ -24,7 +24,7 @@ Perinci::CmdLine::Any->new(
     log => 1,
 )->run;
 
-# ABSTRACT:
+# ABSTRACT: CLI to access reseller API on DaftarNama.id
 # PODNAME:
 
 =head1 SYNOPSIS
